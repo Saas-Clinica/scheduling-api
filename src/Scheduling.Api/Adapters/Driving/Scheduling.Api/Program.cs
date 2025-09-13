@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+using scheduling_api.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +8,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(
     cfg => cfg.EnableAnnotations()
     );
+
+builder.Services.AddApplication();
+
+
+
 
 var app = builder.Build();
 

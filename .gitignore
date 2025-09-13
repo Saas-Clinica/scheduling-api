@@ -8,3 +8,11 @@
 /src/scheduling-api/Adapters/Driving/scheduling-api/bin/Debug/net9.0
 /src/scheduling-api/Core/Application/scheduling-api.Application/obj
 /src/scheduling-api/Core/Domain/scheduling-api.Domain/obj
+/.vs
+/src/Scheduling.Api/.vs
+/src/Scheduling.Api/Adapters/Driving/Scheduling.Api/bin/Debug/net9.0
+/src/Scheduling.Api/Adapters/Driving/Scheduling.Api/obj
+/src/Scheduling.Api/Core/Application/Scheduling.Api.Application/bin/Debug/net9.0
+/src/Scheduling.Api/Core/Application/Scheduling.Api.Application/obj
+/src/Scheduling.Api/Core/Domain/Scheduling.Api.Domain/bin/Debug/net9.0
+/src/Scheduling.Api/Core/Domain/Scheduling.Api.Domain/obj

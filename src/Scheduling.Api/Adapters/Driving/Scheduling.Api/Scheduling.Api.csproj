@@ -8,9 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Asp.Versioning.Http" Version="8.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Application\Scheduling.Api.Application\Scheduling.Api.Application.csproj" />
+    <ProjectReference Include="..\..\..\Core\Domain\Scheduling.Api.Domain\Scheduling.Api.Domain.csproj" />
   </ItemGroup>
 
 </Project>
