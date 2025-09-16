@@ -1,7 +1,7 @@
-﻿using Models.Commands;
-using Models.Results;
+﻿using Scheduling.Api.Application.Models.Commands;
+using Scheduling.Api.Application.Models.Results;
 
-namespace UseCases;
+namespace Scheduling.Api.Application.Ports;
 
 public interface ICreateAppointmentUseCase
 {

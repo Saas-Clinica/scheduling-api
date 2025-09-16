@@ -1,4 +1,4 @@
-﻿namespace Enums;
+﻿namespace Scheduling.Api.Domain.Enums;
 
 public enum AppointmentStatusEnum
 {

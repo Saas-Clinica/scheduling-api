@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using UseCases;
+using Scheduling.Api.Application.Common;
+using Scheduling.Api.Application.Ports;
+using Scheduling.Api.Application.UseCases;
 
-namespace scheduling_api.Application;
+namespace Scheduling.Api.Application;
 
 public static class ApplicationDependencyInjection
 {

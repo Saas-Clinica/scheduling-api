@@ -1,4 +1,4 @@
-﻿namespace Dtos.v1.Appointment;
+﻿namespace Scheduling.Api.Dtos.v1.Appointment;
 
 public record CreateAppointmentRequestDto
 {

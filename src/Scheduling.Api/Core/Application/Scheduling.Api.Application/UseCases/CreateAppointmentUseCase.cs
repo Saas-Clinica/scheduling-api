@@ -1,11 +1,19 @@
-﻿using Enums;
-using Models.Commands;
-using Models.Results;
+﻿using Scheduling.Api.Application.Base;
+using Scheduling.Api.Application.Common;
+using Scheduling.Api.Application.Models.Commands;
+using Scheduling.Api.Application.Models.Results;
+using Scheduling.Api.Application.Ports;
+using Scheduling.Api.Domain.Enums;
 
-namespace UseCases;
+namespace Scheduling.Api.Application.UseCases;
 
-public class CreateAppointmentUseCase : ICreateAppointmentUseCase
+public class CreateAppointmentUseCase : UseCaseBase, ICreateAppointmentUseCase
 {
+    public CreateAppointmentUseCase(
+        INotifier notifier) : base(notifier)
+    {
+        
+    }
     public Task<CreateAppointmentResult> ExecuteAsync(CreateAppointmentCommand command, CancellationToken cancellationToken)
     {
         return Task.FromResult(new CreateAppointmentResult

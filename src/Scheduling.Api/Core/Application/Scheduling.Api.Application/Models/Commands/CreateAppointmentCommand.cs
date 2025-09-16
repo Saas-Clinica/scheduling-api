@@ -1,4 +1,4 @@
-﻿namespace Models.Commands;
+﻿namespace Scheduling.Api.Application.Models.Commands;
 
 public record CreateAppointmentCommand
 {

@@ -1,6 +1,6 @@
-﻿using Enums;
+﻿using Scheduling.Api.Domain.Enums;
 
-namespace Dtos.v1.Appointment;
+namespace Scheduling.Api.Dtos.v1.Appointment;
 
 public record CreateAppointmentResponseDto
 {

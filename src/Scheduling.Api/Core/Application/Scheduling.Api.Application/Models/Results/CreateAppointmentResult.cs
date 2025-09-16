@@ -1,6 +1,6 @@
-﻿using Enums;
+﻿using Scheduling.Api.Domain.Enums;
 
-namespace Models.Results;
+namespace Scheduling.Api.Application.Models.Results;
 
 public record CreateAppointmentResult
 {

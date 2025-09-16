@@ -1,19 +1,22 @@
 ﻿using Asp.Versioning;
-using Dtos.v1.Appointment;
 using Microsoft.AspNetCore.Mvc;
-using Models.Commands;
+using Scheduling.Api.Application.Common;
+using Scheduling.Api.AppServices.Ports;
+using Scheduling.Api.Dtos.v1.Appointment;
+using Scheduling.Api.Presenters;
 using Swashbuckle.AspNetCore.Annotations;
-using UseCases;
 
-namespace Controllers.v1;
+namespace Scheduling.Api.Controllers.v1;
 
 [ApiController]
-//[ApiVersion("1.0")]
-//[Route("api/v{version:apiVersion}/[controller]")]
-[Route("api/v1/[controller]")]
+[ApiVersion(1)]
+[Route("api/v{version:apiVersion}/[controller]")]
 [SwaggerTag("Agendamentos de procedimentos")]
-public class AppointmentController : ControllerBase
+
+public class AppointmentController(IAppointmentAppService service, INotifier notifier) : ControllerBase
 {
+    #region CREATE APPOINTMENT
+
     [HttpPost]
     [ProducesResponseType(typeof(CreateAppointmentResponseDto), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -24,25 +27,25 @@ public class AppointmentController : ControllerBase
         Description = "Cria um novo agendamento de procedimento para um paciente em uma data e hora específicas."
     )]
 
-    public Task<IActionResult> CreateAppointment(
+    public async Task<IActionResult> CreateAppointment(
         [FromBody] CreateAppointmentRequestDto request,
-        [FromServices] ICreateAppointmentUseCase useCase,
-        CancellationToken cancellationToken = default
-        )
+        CancellationToken cancellationToken)
     {
-        //var command = mapper.Map<CreateAppointmentCommand>(request);
 
-        //var result = useCase.ExecuteAsync(command, cancellationToken);
+        var result = await service.CreateAsync(request, cancellationToken);
 
-        return Task.FromResult<IActionResult>(Ok());
+        if (notifier.HasErrors)
+            return NotifierPresenter.ToActionResult(notifier);
+
+        return Created(string.Empty, result);
     }
 
-    //TODO: CRIAR VALIDATOR REQUEST
-    //TODO: CRIAR MAPPER (AUTOMAPPER 14.0.0)
-    //TODO: ATIVAR VERSION API (configs no program)
-    //TODO: CRIAR BASE RETURN ERROR
-
+    #endregion
+    
     //TODO: POST   /api/appointments          -> criar EM_ANDAMENTO
+    //TODO: AUTHENTICATE
+
+  
     //TODO: GET    /api/appointments
     //TODO: GET    /api/appointments/{id}     -> detalhe
     //TODO: PUT    /api/appointments/{id}     -> atualizar (ex.: reagendar)
